@@ -24,9 +24,19 @@ def add_supply_to_memorial_day(holiday_hash, supply)
   end
 end
 
-def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  holiday_hash[season][holiday_name] = supply_array
-end
+def all_supplies_in_holidays(holiday_hash)
+@@ -53,13 +55,27 @@ def all_supplies_in_holidays(holiday_hash)
+  # Summer:	  # Summer:
+  #   Fourth Of July: Fireworks, BBQ	  #   Fourth Of July: Fireworks, BBQ
+  # etc.	  # etc.
+
+  holiday_supplies.each do |season, holiday|
+    puts "#{season.capitalize}:"
+    holiday.each do |holiday, supply|
+      puts "  #{holiday.to_s.split('_').map {|spaced| spaced.capitalize}.join(' ')}: #{supply.join(", ")}"
+    end
+  end
+end	end
 
 def all_winter_holiday_supplies(holiday_hash)
   holiday_hash[:winter].values.flatten
